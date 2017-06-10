@@ -1,7 +1,6 @@
 import binascii
 import os
 import io
-from PIL import Image
 
 path="pic.bmp"
 f=open(path,'rb')
