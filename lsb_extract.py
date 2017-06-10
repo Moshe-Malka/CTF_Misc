@@ -23,8 +23,6 @@ while True:
     if(len(bytesArr)==1000):
         break
 
-#print ''.join(bytesArr)
-
 out=[]
 o=""
 print "Outcome: "
@@ -35,7 +33,5 @@ for b1 in bytesArr:
         o+=h
     out.append(o)
     o=""
-print out
-
 
 f.seek(0)
