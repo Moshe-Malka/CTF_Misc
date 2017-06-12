@@ -9,7 +9,7 @@ def Shortz(num):
     else:
         n2=((3*num)+1)
         Shortz(n2) 
-
+# <Not Finished>
 def ShortzSum(num):
     m_sum=num
     if(num%2==0):
