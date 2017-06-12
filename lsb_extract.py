@@ -1,37 +1,22 @@
-import binascii
-import os
-import io
-
+# moshe malka
 path="pic.bmp"
 f=open(path,'rb')
-f.seek(0)
+f.seek(0)   #go to the start of the file.
 b=""
 bytesArr=[]
 while True:
-    byte=f.read(1)
-    #print binascii.hexlify(byte)
-    #print byte
-    bits = '{0:08b}'.format(ord(byte))
-    #print bits
-    lsb=[]
-    b+=str(bits[-1])
-    if(len(b)==8):
-        #print "new Byte: "+ str(b)
+    byte=f.read(1)  # read 1 byte at a time.
+    bits = '{0:08b}'.format(ord(byte)) # get 8 bits.
+    b+=str(bits[-1]) # get lsb from byte and concate them to new byte.
+    if(len(b)==8):  # if we have 8 bits (1 byte) -> append it and restart variables.
         bytesArr.append(b)
         b=""
-        #break
-    if(len(bytesArr)==1000):
+    if(len(bytesArr)==100): # if we reached 100 bytes - quit the proccess.
         break
 
 out=[]
-o=""
 print "Outcome: "
 for b1 in bytesArr:
-    h=hex(int(b1,2))
-    print chr(int(b1,2))
-    for a in range(7):    
-        o+=h
-    out.append(o)
-    o=""
-
-f.seek(0)
+    out.append(chr(int(b1,2)))
+print ''.join(out)
+f.seek(0)   #go to the start of the file.
